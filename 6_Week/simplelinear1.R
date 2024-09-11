@@ -1,0 +1,7 @@
+file.rename("D:/Downloads/bonds.txt", "bonds.txt")
+bonds <- read.delim("bonds.txt",row.name=1)
+View(bonds)
+head(bonds)
+str(bonds)
+summary(bonds)
+plot(bonds$CouponRate,bonds$BidPrice,main = "Bid price vs coupon", xlab = "Coupon rate", ylab = "bid price")
