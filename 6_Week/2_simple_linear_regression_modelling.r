@@ -44,6 +44,15 @@ plot(bonds$CouponRate, bonds$BidPrice,
     ylab = "Bid Price"
 )
 abline(model_bonds)
+# Predict bid price for CouponRate = 3
+predicted_price <- predict(model_bonds, newdata = data.frame(CouponRate = 3))
+predicted_price
+# Actual bid price (replace with the actual value)
+actual_price <- 94.5  # Example value, replace with actual
+
+# Calculate residual
+residual_error <- actual_price - predicted_price
+residual_error
 
 # * 4) Look at summary of the model
 print("Summary of the model:")
@@ -94,7 +103,7 @@ plot(model_bonds$fitted.values, rstandard(model_bonds),
 )
 abline(h = 2, lty = 2)
 abline(h = -2, lty = 2)
-# identify(model_bonds$fitted.values, rstandard(model_bonds)) # uncomment to test
+identify(model_bonds$fitted.values, rstandard(model_bonds))
 
 # 4 13 34 35 are displayed as outliers
 

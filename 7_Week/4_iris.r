@@ -1,5 +1,8 @@
 # Assignment Question
-
+install.packages("png")
+install.packages("grid")
+library(png)
+library(grid)
 library(caret) # for confusionMatrix
 library(ggplot2)
 library(dplyr)
@@ -15,6 +18,8 @@ irisdata$Species <- as.factor(irisdata$Species)
 # View the data
 View(irisdata)
 head(irisdata)
+# Find the dimensions of the dataframe
+dim(irisdata)
 
 # Create a directory to save the plots (adjust the path as needed)
 plot_dir <- "plots/"
@@ -34,7 +39,10 @@ histogram_plots <- lapply(names(independent_vars), function(var_name) {
     # Save the plot as a PNG file
     ggsave(filename = paste0(plot_dir, var_name, "_histogram.png"), plot = p, width = 6, height = 4, dpi = 300)
 })
+img <- readPNG("plots/_histogram.png")
 
+# Display the image
+grid.raster(img)
 # The plots have been saved as PNG files in the specified directory
 
 # Find no. of rows in the dataset that contain missing values
@@ -46,3 +54,4 @@ sum(is.na(irisdata))
 print("Mean of PetalLength and PetalWidth")
 lapply(irisdata[, 3:4], mean)
 apply(irisdata[, 3:4], 2, mean) # 2 is for column wise
+
