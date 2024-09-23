@@ -1,8 +1,8 @@
-#install.packages('datasets')
-#install.packages('caTools')
-#install.packages('party')
-#install.packages('dplyr')
-#install.packages('magrittr')
+install.packages('datasets')
+install.packages('caTools')
+install.packages('party')
+install.packages('dplyr')
+install.packages('magrittr')
 
 
 library(datasets)
